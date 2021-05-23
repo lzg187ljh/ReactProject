@@ -28,6 +28,7 @@ productRouter.get('/seed',
 productRouter.get('/:id',
     expressAsyncHandler(async(req,res)=>{
         // await conver a promise to real data
+        // The req.params object captures data based on the parameter specified in the URL.
         const product = await Product.findById(req.params.id);
         if(product){
             res.send(product);

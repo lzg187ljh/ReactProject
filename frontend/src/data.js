@@ -1,3 +1,4 @@
+// ************* could be removed now *********************
 const data = {
     products: [
       {

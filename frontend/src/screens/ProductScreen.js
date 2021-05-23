@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { detailsProducts } from '../actions/productActions';
-import MessageBox from '../components/LoadingBox';
-import LoadingBox from '../components/MessageBox';
+import LoadingBox from '../components/LoadingBox';
+import MessageBox from '../components/MessageBox';
 import Rating from '../components/Rating';
 
 export default function ProductScreen(props){
@@ -16,6 +16,7 @@ export default function ProductScreen(props){
     const productDetails = useSelector( state => state.productDetails);
     const { loading,error,product} = productDetails;
     
+    // useEffect is a side effect function in hook, it will be called when component is rendered
     useEffect(()=>{
         dispatch(detailsProducts(productId));
     },[dispatch, productId]);

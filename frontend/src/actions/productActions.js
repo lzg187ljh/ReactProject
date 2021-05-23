@@ -31,6 +31,6 @@ export const detailsProducts = (productId) => async(dispatch) =>{
                 error.response && error.response.data.message 
                 ? error.response.data.message
                 : error.message,
-        })
+        });
     }
 }
