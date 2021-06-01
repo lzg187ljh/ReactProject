@@ -21,6 +21,8 @@ app.use(express.urlencoded({extended:true}));
 // The "process. env" global variable is injected by the Node at runtime for your application to use 
 // and it represents the state of the system environment your application is in when it starts.
 // use a string as an alternative option if .env doesn't exist
+
+// Deploy step, heroku config overwrite process.env var ***********
 mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/amazona',{
     useNewUrlParser: true,
     useUnifiedTopology: true,
