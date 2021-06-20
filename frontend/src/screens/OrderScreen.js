@@ -17,7 +17,7 @@ function OrderScreen(props) {
 
     const orderPay = useSelector(state=>state.orderPay);
     // rename error as errorPay
-    const {loading:loadingPay, error: errorPay, success: successPay} = orderPay;
+    const {loading: loadingPay, error: errorPay, success: successPay} = orderPay;
     useEffect(() => {
         const addPayPalScript = async () => {
             const { data } = await Axios.get('/api/config/paypal');

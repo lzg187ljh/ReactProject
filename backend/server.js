@@ -6,10 +6,7 @@ import path from 'path';
 import productRouter from './routers/productRouters.js';
 import userRouter from './routers/userRouters.js';
 import orderRouter from './routers/orderRouter.js';
-
-import expressAsyncHandler from 'express-async-handler';
-import Order from './models/orderModel.js';
-import { isAuth } from './utils.js';
+import uploadRouter from './routers/uploadRouter.js';
 
 // .env must be added to .gitignore, otherwise it would be not secure
 dotenv.config();
@@ -32,6 +29,7 @@ mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/amazona',{
 
 // append path in userRouter to /api/users
 app.use('/api/users',userRouter);
+app.use('/api/uploads',uploadRouter);
 app.use('/api/products',productRouter);
 app.use('/api/orders',orderRouter);
 app.use((err,req,res,next) =>{
@@ -41,7 +39,9 @@ app.get('/api/config/paypal',(req,res)=>{
     res.send(process.env.PAYPAL_CLIENT_ID || 'sb');
 });
 
+// the result return current folder
 const __dirname = path.resolve();
+app.use('/uploads', express.static(path.join(__dirname,'/uploads')))
 app.use(express.static(path.join(__dirname,'/frontend/build')));
 app.get('*',(req,res)=>{
     res.sendFile(path.join(__dirname,'/frontend/build/index.html'));
