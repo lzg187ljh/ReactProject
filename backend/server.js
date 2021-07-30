@@ -7,10 +7,12 @@ import productRouter from './routers/productRouters.js';
 import userRouter from './routers/userRouters.js';
 import orderRouter from './routers/orderRouter.js';
 import uploadRouter from './routers/uploadRouter.js';
+import carouselRouter from './routers/carouselRouter.js';
 
 // .env must be added to .gitignore, otherwise it would be not secure
 dotenv.config();
 
+// app is express 的实例
 const app = express();
 // parse the body of http request, otherwise body of request can't be readed by postman
 app.use(express.json());
@@ -32,6 +34,7 @@ app.use('/api/users',userRouter);
 app.use('/api/uploads',uploadRouter);
 app.use('/api/products',productRouter);
 app.use('/api/orders',orderRouter);
+app.use('/api/carousels',carouselRouter);
 app.use((err,req,res,next) =>{
     res.status(500).send({message: err.message});
 });

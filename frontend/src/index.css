@@ -309,7 +309,15 @@ img.large {
 }
 /* Carousel */
 .carousel .slide img {
-  max-width: 30rem;
+  max-height: 50rem;
+}
+.carouselButton {
+  position: absolute;
+  left:50%; 
+  top:70%; 
+  transform:translate(-50%,-50%);
+  width:20rem;
+  height:5rem;
 }
 
 /* Search */
@@ -467,3 +475,4 @@ img.large {
 .support-users .unread {
   background-color: #f02020;
 }
+

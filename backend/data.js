@@ -1,6 +1,21 @@
 import bcrypt from 'bcryptjs';
 
 const data = {
+    carousels: [
+      {
+        name:'Nike Collection',
+        image:'/images/nike.jpg',
+        brand:'Nike',
+      },{
+        name:'Adidas Collection',
+        image:'/images/adidas.jpg',
+        brand:'Adidas',
+      },{
+        name:'Lacoste Collection',
+        image:'/images/lacoste.jpg',
+        brand:'Lacoste',
+      }
+    ],
     users: [
       {
         name:'Basir',
